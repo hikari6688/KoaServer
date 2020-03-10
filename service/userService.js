@@ -53,13 +53,14 @@ module.exports.login = async function(data) {
   const hashPass=result.passWord;
   //进行hash对比
   const loginResult= async function checkUser(username, password) {
+    console.log(passWord,222,hashPass)
     const match = await bcrypt.compare(passWord,hashPass);
     // const privateKey = fs.readFileSync('private.key');
     // const token = jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256'});
     var token = jwt.sign({ nam: data.name,passWord:data.passWord}, 'shhhhh',{ expiresIn: '12h' });
-    jwt.verify(token, 'shhhhh', function(err, decoded) {
-      console.log(decoded) // bar
-    });
+    // jwt.verify(token, 'shhhhh', function(err, decoded) {
+    //   console.log(decoded) // bar
+    // });
     console.log(token)
     if(match) {
         //密码正确

@@ -10,13 +10,13 @@ router.post('/register', async ctx => {
     msg: result
   };
 });
-router.post('/checkUserName', async ctx => {
+router.post('/user/checkUserName', async ctx => {
   const result = await findUserByName(ctx.request.body);
   ctx.body = {
     msg: result
   };
 });
-router.post('/findUser', async ctx => {
+router.post('/user/findUser', async ctx => {
   const result = await findUserById(ctx.request.body);
   ctx.body = {
     msg: result
