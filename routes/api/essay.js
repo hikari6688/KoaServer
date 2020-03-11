@@ -1,8 +1,9 @@
 const Router = require('koa-router');
 const router = new Router();
-const { addEssay,deleteEssay,updateEssay,getEssayList  } = require('../../service/essayService');
+const { addEssay,deleteEssay,updateEssay,getEssayList,getDetail  } = require('../../service/essayService');
 //新增文章
 router.post('/addEssay', async ctx => {
+  console.log(ctx.request.body)
   const result = await addEssay(ctx.request.body);
   ctx.body = {
     msg: result
@@ -12,6 +13,7 @@ router.post('/addEssay', async ctx => {
 //currentPage name
 router.post('/getEssayList', async ctx => {
   const result = await getEssayList(ctx.request.body);
+  result.status=200;
   ctx.body =result;
 });
 //修改文章
@@ -24,8 +26,11 @@ router.post('/updateEssay', async ctx => {
 //删除文章
 router.post('/deleteEssay', async ctx => {
   const result = await deleteEssay(ctx.request.body);
-  ctx.body = {
-    msg: result
-  };
+  ctx.body = result;
+});
+//获取文章详情
+router.post('/getDetail', async ctx => {
+  const result = await getDetail(ctx.request.body);
+  ctx.body = result;
 });
 module.exports = router.routes();

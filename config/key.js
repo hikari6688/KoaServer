@@ -1,5 +1,5 @@
 module.exports={
-  mongoURI:"mongodb://localhost:27017/local",
+  mongoURI:"mongodb://122.51.209.172/local",
   salt:'azuna_hikari',
   secret:'azuna_hikari'
 }
