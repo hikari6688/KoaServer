@@ -8,6 +8,21 @@ const essaySchema = new Schema(
       type: String,
       require: true
     },
+    //简介
+    intro: {
+      type: String,
+      require: true
+    },
+    // 标签列表
+    tag: {
+      type: String,
+      require: true
+    },
+    //文章类型
+    type: {
+      type: String,
+      required: true
+    },
     //文章内容(富文本)
     content: {
       type: String,
@@ -26,13 +41,8 @@ const essaySchema = new Schema(
     //作者
     author: {
       type: String,
-      require: true
+      require: false
     },
-    //描述
-    describe: {
-      type: String,
-      require: true
-    }
   },
   {
     versionKey: false,
@@ -40,5 +50,3 @@ const essaySchema = new Schema(
   }
 );
 module.exports = Essay = mongoose.model('essay', essaySchema);
-
-
