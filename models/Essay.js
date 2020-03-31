@@ -43,6 +43,10 @@ const essaySchema = new Schema(
       type: String,
       require: false
     },
+    cover: {
+      type: String,
+      require: false
+    }
   },
   {
     versionKey: false,
