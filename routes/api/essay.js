@@ -40,7 +40,7 @@ router.post('/getDetail', async (ctx) => {
 //上传图片
 router.post('/fileUpload', async (ctx, next) => {
   // 上传单个文件
-  const file = ctx.request.files.avatar; // 获取上传文件
+  const file = ctx.request.files.file; // 获取上传文件
   const type = file.name.split('.')[1];
   file.name = new Date().getTime() + '.' + type;
   // 创建可读流
