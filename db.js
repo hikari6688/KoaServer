@@ -2,8 +2,11 @@
 const mongoose = require('mongoose')
 const db=require('./config/key').mongoURI;
 const DB_URL = db;
-mongoose.connect(DB_URL,{useNewUrlParser: true})
-
+const options={
+  useNewUrlParser: true,
+  autoIndex: false,
+}
+mongoose.connect(DB_URL,options)
 mongoose.connection.on('connected',function() {
    console.log('Mongoose connection open to '+DB_URL);
 });
